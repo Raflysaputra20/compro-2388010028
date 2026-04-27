@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digitech | Elegant Future Solutions</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0d1b2f;
+      --card: rgba(255, 255, 255, 0.06);
+      --text: #f4f7fb;
+      --muted: #a7b4c7;
+      --line: rgba(255, 255, 255, 0.12);
+      --primary: #4fd1ff;
+      --secondary: #7c5cff;
+      --accent: #18f2b2;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(79, 209, 255, 0.15), transparent 30%),
+        radial-gradient(circle at top right, rgba(124, 92, 255, 0.18), transparent 28%),
+        linear-gradient(135deg, #050b16 0%, #081223 45%, #0a162b 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(5, 11, 22, 0.72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: #fff;
+      box-shadow: 0 10px 30px rgba(79, 209, 255, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 36px rgba(79, 209, 255, 0.35);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .hero {
+      padding: 110px 0 80px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 16px;
+      border: 1px solid rgba(79, 209, 255, 0.25);
+      color: var(--primary);
+      border-radius: 999px;
+      background: rgba(79, 209, 255, 0.08);
+      margin-bottom: 22px;
+      font-size: 0.92rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 6vw, 5rem);
+      line-height: 1.08;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--primary), #ffffff, var(--accent));
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 1.08rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      top: -50px;
+      right: -60px;
+      background: radial-gradient(circle, rgba(79, 209, 255, 0.35), transparent 70%);
+      border-radius: 50%;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+
+    .panel small {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .panel strong {
+      font-size: 1.15rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 26px;
+    }
+
+    .stat {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px;
+      text-align: center;
+    }
+
+    .stat h3 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 14px;
+    }
+
+    .section-title p {
+      color: var(--muted);
+    }
+
+    .services-grid,
+    .feature-grid,
+    .team-grid {
+      display: grid;
+      gap: 24px;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      transition: 0.3s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(79, 209, 255, 0.35);
+    }
+
+    .icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 18px;
+      font-size: 1.4rem;
+      background: linear-gradient(135deg, rgba(79, 209, 255, 0.16), rgba(124, 92, 255, 0.16));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(2, 1fr);
+      align-items: center;
+    }
+
+    .feature-box {
+      padding: 10px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .feature-item {
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+    }
+
+    .feature-item strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .vision-panel {
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at center, rgba(79, 209, 255, 0.18), transparent 35%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      padding: 30px;
+      text-align: center;
+    }
+
+    .vision-panel h3 {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+
+    .vision-panel p {
+      color: var(--muted);
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 60px 30px;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(79, 209, 255, 0.12), rgba(124, 92, 255, 0.12)),
+        rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 14px;
+    }
+
+    .cta p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto 26px;
+    }
+
+    footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="logo">MUHAMMAD RAFLY SAPUTRA_2388010028<span>Tech</span></div>
+      <ul class="nav-links">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#services">Layanan</a></li>
+        <li><a href="#vision">Visi</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-secondary">Konsultasi</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-badge">Innovating Tomorrow, Today</div>
+          <h1>Menciptakan Inovasi Digital untuk Masa Depan yang Lebih Canggih <span>Elegan & Visioner</span></h1>
+          <p>
+            Digitech menghadirkan solusi teknologi modern untuk bisnis yang ingin tumbuh lebih cepat,
+            tampil lebih kuat, dan siap menghadapi masa depan dengan strategi digital yang cerdas.
+          </p>
+          <div class="hero-actions">
+            <a href="#services" class="btn btn-primary">Jelajahi Layanan</a>
+            <a href="#vision" class="btn btn-secondary">Lihat Visi Kami</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <h3>150+</h3>
+              <p>Project Digital</p>
+            </div>
+            <div class="stat">
+              <h3>98%</h3>
+              <p>Kepuasan Klien</p>
+            </div>
+            <div class="stat">
+              <h3>24/7</h3>
+              <p>Support System</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="panel">
+            <small>Platform Intelligence</small>
+            <strong>AI-Powered Digital Ecosystem</strong>
+          </div>
+          <div class="panel">
+            <small>Business Transformation</small>
+            <strong>Scalable, Secure, Future-Ready</strong>
+          </div>
+          <div class="panel">
+            <small>Creative Technology</small>
+            <strong>Design, Development, Innovation</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>Layanan Unggulan Digitech</h2>
+          <p>
+            Kami memadukan desain elegan, teknologi mutakhir, dan strategi visioner
+            untuk menciptakan pengalaman digital yang berkelas.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <div class="card">
+            <div class="icon">🌐</div>
+            <h3>Web Development</h3>
+            <p>
+              Website modern, cepat, responsif, dan premium untuk memperkuat identitas bisnis Anda di era digital.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="icon">📱</div>
+            <h3>Mobile Solutions</h3>
+            <p>
+              Aplikasi mobile yang intuitif dan powerful untuk menjangkau pelanggan di mana pun mereka berada.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="icon">☁️</div>
+            <h3>Cloud Integration</h3>
+            <p>
+              Infrastruktur cloud yang fleksibel, aman, dan efisien untuk mendukung pertumbuhan bisnis berkelanjutan.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="icon">🤖</div>
+            <h3>AI & Automation</h3>
+            <p>
+              Optimalkan proses bisnis dengan kecerdasan buatan dan otomasi cerdas yang meningkatkan produktivitas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision">
+      <div class="container feature-grid">
+        <div class="feature-box">
+          <div class="section-title" style="text-align: left; margin: 0 0 24px 0;">
+            <h2>Visi yang Melampaui Tren</h2>
+            <p>
+              Digitech tidak hanya membangun produk digital, tetapi juga merancang masa depan bisnis
+              melalui inovasi yang terukur dan berdaya saing tinggi.
+            </p>
+          </div>
+
+          <div class="feature-list">
+            <div class="feature-item">
+              <strong>Elegant by Design</strong>
+              Setiap solusi dirancang dengan estetika modern, bersih, dan profesional.
+            </div>
+            <div class="feature-item">
+              <strong>Visionary by Strategy</strong>
+              Kami fokus pada teknologi yang relevan untuk masa depan, bukan sekadar tren sesaat.
+            </div>
+            <div class="feature-item">
+              <strong>Built for Growth</strong>
+              Seluruh sistem kami dirancang agar scalable, adaptif, dan siap berkembang bersama bisnis Anda.
+            </div>
+          </div>
+        </div>
+
+        <div class="vision-panel">
+          <div>
+            <h3>Future. Crafted Digitally.</h3>
+            <p>
+              Dari branding digital hingga transformasi teknologi menyeluruh,
+              Digitech menjadi partner strategis untuk mewujudkan bisnis yang lebih cerdas dan kompetitif.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta" id="contact">
+          <h2>Siap Membawa Bisnis Anda ke Level Berikutnya?</h2>
+          <p>
+            Mari berkolaborasi bersama Digitech untuk menciptakan pengalaman digital yang
+            elegan, inovatif, dan berdampak nyata bagi pertumbuhan bisnis Anda.
+          </p>
+          <a href="mailto:info@digitech.com" class="btn btn-primary">Hubungi Kami</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      &copy; 2026 Digitech. All rights reserved. | Designed with elegance and future vision.
+    </div>
+  </footer>
+</body>
+</html>
